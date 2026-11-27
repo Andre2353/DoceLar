@@ -1,23 +1,26 @@
 package com.biolab.doce_laar.entity;
 
+import com.biolab.doce_laar.enums.Cargo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
+@Table(name = "funcionarios")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@Table(name = "Funcionarios")
 public class Funcionario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String nome;
+
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Cargo cargo;
 }
